@@ -90,6 +90,14 @@ public class Main {
         return model_base;
     }
 
+    void Btn_cls() {
+        // Limpiar los campos de texto
+        txt_name.setText("");
+        txt_lastname.setText("");
+        txt_email.setText("");
+    }
+
+
     // Constructor de la clase
     public Main() {
         // Configuración de la ventana principal
@@ -108,6 +116,12 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnActionAddInfo();
+            }
+        });
+        btn_cls.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Btn_cls();
             }
         });
     }
