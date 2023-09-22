@@ -58,16 +58,17 @@ public class Main {
     }
 
 
+    DefaultTableModel model_table() {
+        DefaultTableModel model_base = new DefaultTableModel();
+        model_base.setColumnIdentifiers(new String[]{"No.1","Nombre Completo", "Email", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Promedio"});
+        return model_base;
+    }
+
     public Main() {
         JFrame frame = new JFrame("Elementos de la GUI - Arreglos");
-        DefaultTableModel model = new DefaultTableModel();
-        model.setColumnIdentifiers(new String[]{"Nombre Completo", "Email", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Promedio"});
-        table_info.setModel(model);
+        table_info.setModel(model_table());
         table_info.setEnabled(false);
-
         jScrollPane1.setViewportView(table_info);
-
-
 
         frame.setContentPane(root);
         frame.setSize(1000, 500);
