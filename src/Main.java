@@ -31,6 +31,11 @@ public class Main {
         String lastname = txt_lastname.getText();
         String email = txt_email.getText();
 
+        if (name.isEmpty() || lastname.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese todos los datos");
+            return;
+        }
+
         int notes[] = new int[]{
                 Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 1")),
                 Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 2")),
