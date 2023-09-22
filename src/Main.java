@@ -36,12 +36,30 @@ public class Main {
             return;
         }
 
-        int notes[] = new int[]{
-                Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 1")),
-                Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 2")),
-                Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 3")),
-                Integer.parseInt(JOptionPane.showInputDialog("Ingrese nota 4")),
-        };
+        int[] notes = new int[4];
+
+        for (int i = 0; i < 4; i++) {
+            boolean validInput = false;
+
+            while (!validInput) {
+                String input = JOptionPane.showInputDialog("Ingrese nota " + (i + 1));
+
+                try {
+                    int note = Integer.parseInt(input);
+
+                    if (note >= 0 && note <= 100) {
+                        notes[i] = note;
+                        validInput = true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese una nota entre 0 y 100.");
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese un número válido.");
+                }
+            }
+        }
+
+
 
         Object[] studentData = new Object[]{name + " " + lastname, email, notes};
 
@@ -60,7 +78,7 @@ public class Main {
 
     DefaultTableModel model_table() {
         DefaultTableModel model_base = new DefaultTableModel();
-        model_base.setColumnIdentifiers(new String[]{"No.1","Nombre Completo", "Email", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Promedio"});
+        model_base.setColumnIdentifiers(new String[]{"No.1", "Nombre Completo", "Email", "Nota 1", "Nota 2", "Nota 3", "Nota 4", "Promedio"});
         return model_base;
     }
 
